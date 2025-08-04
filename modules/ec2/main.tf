@@ -1,16 +1,17 @@
+terraform {
+  required_providers {
+    null = {
+      source  = "hashicorp/null"
+      version = "3.2.3"
+    }
+  }
+}
 resource "aws_instance" "instance" {
   ami = var.ami
   instance_type = var.instance_type
 
   tags={
     Name = "${var.name}-${var.env}"
-  }
-
-  provisioner "local-exec" {
-    command = <<ANSIBLE
-cd/home/ec2-user/roboshop-ansible
- make role_name=${var.name}
-ANSIBLE
   }
 }
 
@@ -20,4 +21,12 @@ resource "aws_route53_record" "record" {
   type    = "A"
   ttl     = 30
   records = [aws_instance.instance.private_ip]
+}
+resource "null_resource" "ansible" {
+  provisioner "local-exec" {
+    command = <<ANSIBLE
+cd/home/ec2-user/roboshop-ansible
+ make role_name=${var.name}
+ANSIBLE
+  }
 }
