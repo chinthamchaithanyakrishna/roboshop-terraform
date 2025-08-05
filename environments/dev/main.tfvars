@@ -41,7 +41,7 @@ instances = {
   }
 }
 
-env       = "prod"
+env       = "dev"
 ami       = "ami-09c813fb71547fc4f"
 zone_id   = "Z03600275KRLQSHOUIKS"
 zone_name = "chaithanya.online"
