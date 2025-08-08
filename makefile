@@ -27,4 +27,4 @@ prod-destroy: prod-init
 
 tools-infra:
 	git pull
-	cd tools ; terraform init ;
+	cd tools ; terraform init ; terraform plan
