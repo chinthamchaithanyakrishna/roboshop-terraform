@@ -26,7 +26,7 @@ resource "aws_route53_record" "public" {
 }
 
 resource "null_resource" "ansible" {
-  count = var.env == null ? 1 : 0
+  count = var.env == null ? 0 : 1
   depends_on = [aws_route53_record.record]
   provisioner "remote-exec" {
     connection {
