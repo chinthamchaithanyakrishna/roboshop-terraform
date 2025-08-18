@@ -7,6 +7,6 @@ terraform {
 }
 
 provider "vault" {
-  address        = "http://vault-internal.chaithanya:8200"
+  address        = "107.20.80.120:8200"
   token = var.token
 }
