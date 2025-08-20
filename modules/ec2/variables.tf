@@ -5,4 +5,3 @@ variable "env" {
   default = null
 }
 variable "zone_id" {}
-variable "token" {}
