@@ -25,21 +25,21 @@ resource "aws_route53_record" "public" {
   records = [aws_instance.instance.public_ip]
 }
 
-# resource "null_resource" "ansible" {
-#
-#   count = var.env == null ? 0 : 1
-#
-#   depends_on = [aws_route53_record.record]
-#   provisioner "remote-exec" {
-#     connection {
-#       type     = "ssh"
-#       user     = data.vault_generic_secret.ssh-creds.data["username"]
-#       password = data.vault_generic_secret.ssh-creds.data["password"]
-#       host     = aws_instance.instance.private_ip
-#     }
-#
-#     inline = [
-#       "ansible-pull -i localhost, -U https://github.com/chinthamchaithanyakrishna/roboshop-ansible roboshop.yml -e role_name=${var.name} -e token=${var.token} -e env=${var.env}"
-#     ]
-#   }
-# }
+resource "null_resource" "ansible" {
+
+  count = var.env == null ? 0 : 1
+
+  depends_on = [aws_route53_record.record]
+  provisioner "remote-exec" {
+    connection {
+      type     = "ssh"
+      user     = data.vault_generic_secret.ssh-creds.data["username"]
+      password = data.vault_generic_secret.ssh-creds.data["password"]
+      host     = aws_instance.instance.private_ip
+    }
+
+    inline = [
+      "ansible-pull -i localhost, -U https://github.com/chinthamchaithanyakrishna/roboshop-ansible roboshop.yml -e role_name=${var.name} -e token=${var.token} -e env=${var.env}"
+    ]
+  }
+}

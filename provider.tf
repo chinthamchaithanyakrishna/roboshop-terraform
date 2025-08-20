@@ -6,7 +6,7 @@ terraform {
   backend "s3" {}
 }
 
-# provider "vault" {
-#   address        = "107.20.80.120:8200"
-#   token = var.token
-# }
+provider "vault" {
+  address        = "http://vault-internal.chaithanya.online:8200"
+  token = var.token
+}
