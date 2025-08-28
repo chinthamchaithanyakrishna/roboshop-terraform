@@ -1,8 +1,8 @@
 instances = {
-  frontend = {
-    instance_type = "t2.micro"
-    disk_size     = 30
-  }
+  # frontend = {
+  #   instance_type = "t2.micro"
+  #   disk_size     = 30
+  # }
   mysql = {
     instance_type = "t2.micro"
     disk_size     = 20
