@@ -1,7 +1,7 @@
 instances = {
   frontend = {
     instance_type = "t2.micro"
-    disk_size     = 30
+    disk_size     = 45
   }
   mysql = {
     instance_type = "t2.micro"
@@ -21,23 +21,23 @@ instances = {
   }
   cart = {
     instance_type = "t2.micro"
-    disk_size     = 30
+    disk_size     = 45
   }
   catalogue = {
     instance_type = "t2.micro"
-    disk_size     = 30
+    disk_size     = 45
   }
   user = {
     instance_type = "t2.micro"
-    disk_size     = 30
+    disk_size     = 45
   }
   shipping = {
     instance_type = "t2.micro"
-    disk_size     = 30
+    disk_size     = 45
   }
   payment = {
     instance_type = "t2.micro"
-    disk_size     = 30
+    disk_size     = 45
   }
 }
 

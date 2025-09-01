@@ -6,5 +6,6 @@ module "ec2" {
   instance_type = each.value["instance_type"]
   name          = each.key
   zone_id       = var.zone_id
+  disk_size     = each.value["disk_size"]
   token = var.token
 }
